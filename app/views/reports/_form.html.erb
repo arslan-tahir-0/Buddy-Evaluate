@@ -1,0 +1,14 @@
+<div id="report-form" style="display:none">
+<%= form_with scope:"report", model: [reportable, reportable.reports.build], :id => "report-form-check", validate: true,remote: true do |form| %>
+
+  <div>
+    <%= form.label "Create a report" %><br>
+    <%= form.text_area :content, class:"w-50" %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>
+<%# Report form ending %>
+</div>

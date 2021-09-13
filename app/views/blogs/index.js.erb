@@ -1,0 +1,8 @@
+$('#blog-index-heading')[0].innerHTML = "Report Requests";
+<% if @blogs.length > 0%>
+$('.blog-container')[0].innerHTML = ('<%= j render @blogs %>');
+<%else%>
+$('.blog-container')[0].innerHTML = ('<%= j render @blogs %>' + '<div class="card border border-danger"><h3 class="my-5">Blogs with reports not found</h3></div>');
+<%end%>
+$('#post-approve-controls')[0].style.display = "none";
+$('#post-report-controls')[0].style.display = "flex";

@@ -1,0 +1,18 @@
+<p> Create a Reply </h1>
+<h3>Type = <%= type %> </h3>
+<div id="reply_form">
+<% if type == 1%>
+<%= form_with , blog_suggestion_replies_path(suggestion.blog_id,suggestion.id), validate: true, method: :post, remote: false do |form| %>
+<%else%>
+<%= form_with , blog_comment_replies_path(comment.blog_id,comment.id), validate: true, method: :post, remote: false do |form| %>
+<%end%>
+<div>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

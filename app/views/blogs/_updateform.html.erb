@@ -1,0 +1,10 @@
+<%= form_with model: @blog, method: :patch, validate: true do |form| %>
+  <div>
+    <%= form.label :content %><br>
+    <%= form.text_area :content, :class=>"tinymce" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

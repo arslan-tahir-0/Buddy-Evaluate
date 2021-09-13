@@ -1,0 +1,7 @@
+<% if @type =="Blog" %>
+  document.getElementById("upvote-<%= @poly_model.id %>").innerHTML = "<%= j render "like", blog: @poly_model %>";
+  $('#blog-like-count-<%= @poly_model.id %>').replaceWith('<span class="text-primary" id="blog-like-count-<%= @poly_model.id %>"><%= @poly_model.get_likes.size %> people</span>')
+<%elsif @type =="Comment"%>
+  document.getElementById("upvote-<%= @poly_model.id %>").innerHTML = "<%= j render "commentlikes", comment: @poly_model %>";
+  $('#comment-like-count-<%= @poly_model.id %>').replaceWith('<span class="text-primary" id="comment-like-count-<%= @poly_model.id %>"><%= @poly_model.get_likes.size %> people</span>')
+<%end%>

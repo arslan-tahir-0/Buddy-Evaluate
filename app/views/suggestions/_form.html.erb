@@ -1,0 +1,14 @@
+<%= form_with scope:"suggestion", url:blog_suggestions_url(@blog.id) do |form| %>
+  <div>
+    <%= form.label :suggestion_content, "Add your suggestion", class: "font-weight-bold" %><br>
+    <%= form.text_area :suggestion_content, :id => "suggestion-content", class:"form-control mb-2"%>
+  </div>
+
+  <div>
+    <%= form.submit "Create Suggestion", class:"btn btn-success" %>
+  </div>
+<% end %>
+
+
+
+

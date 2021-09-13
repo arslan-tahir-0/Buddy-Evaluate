@@ -1,0 +1,22 @@
+<div class='container'>
+<h1 class='card card-header bg-dark text-light mb-5 text-center'>Create New Blog</h1>
+
+<%= form_with model: @blog, validate: true  do |form| %>
+<%# <label for="#{instance.send(:tag_id)}" class="message"></label> %>
+  <div>
+    <%= form.label :heading %><br>
+    <%= form.text_field :heading, class:'form-control my-3' %>
+  </div>
+
+  <div>
+    <%= form.label :content %><br>
+    <%= form.text_area :content, :class=>'tinymce blog-content-form'%>
+  </div>
+
+  <div>
+    <%= form.submit "Create Blog", class:"btn btn-success my-5" %>
+  </div>
+<% end %>
+</div>
+
+<%= tinymce %>
