@@ -1,0 +1,11 @@
+<div class="card m-3">
+  <div class="mx-3 my-3">
+      <p class="text-info">
+        <%= distance_of_time_in_words(suggestions.created_at, Time.current)%> ago
+      </p>
+      <p >
+        <span class='font-weight-bold'>
+          <%= current_user.first_name %>
+        </span> <span > added suggestion to Blog with title <%= link_to suggestions.blog.heading, blog_path(suggestions.blog.id), method: :get %></span>
+  </div>
+</div>

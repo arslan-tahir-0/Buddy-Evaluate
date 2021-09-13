@@ -1,0 +1,29 @@
+<h1 id="blog-index-heading" class="card card-header bg-dark text-light text-center mb-5">Your Suggestions</h1>
+<div class="container">
+  <% if @suggestions.exists? %>
+  <% @suggestions.each do |f|%>
+      <div class="card m-3">
+      <div class="mx-3 my-3">
+          <p class="text-info">
+            <%= distance_of_time_in_words(f.created_at, Time.current)%> ago
+          </p>
+          <p >
+            <span class='font-weight-bold'>
+              <%= current_user.first_name %>
+            </span> <span > added suggestion "<%= f.suggestion_content%>"" to Blog with title <%= link_to f.blog.heading, blog_path(f.blog.id), method: :get %></span>
+      </div>
+    </div>
+  <%end%>
+
+  <%else%>
+    <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+    <div class="card-body d-flex flex-column align-items-start border border-danger">
+      <strong class="d-inline-block mb-2 text-danger">Alert</strong>
+      <h3 class="mb-0">
+        <div class="text-dark">You have No Suggestion Right now</div>
+      </h3>
+    </div>
+</div>
+  <%end%>
+</div>
+

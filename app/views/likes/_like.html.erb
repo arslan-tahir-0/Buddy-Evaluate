@@ -1,0 +1,12 @@
+<%= content_tag "div", id: "upvote-#{blog.id}" do %>
+  <%= button_to blog_likes_path(blog.id), class:"btn btn-secondary mr-2", method: :patch, remote: true, data: { disable_with: "voting..." } do %>
+    <% if current_user.voted_up_on? blog %>
+      Unlike
+    <% else %>
+      Like
+    <% end %>
+  <% end %>
+<% end %>
+
+
+

@@ -1,0 +1,9 @@
+<h1 id="blog-index-heading" class="card card-header bg-dark text-light text-center mb-5">Latest Blogs</h1>
+<div class="container">
+  <% if @blog.exists? %>
+  <%= render partial: 'blogs/blog', collection: @blog %>
+  <%else%>
+  <h3>There are no posts to show</h3>
+  <%end%>
+</div>
+

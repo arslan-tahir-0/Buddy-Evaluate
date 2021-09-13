@@ -1,0 +1,11 @@
+<div class="card m-3">
+  <div class="mx-3 my-3">
+      <p class="text-info">
+        <%= distance_of_time_in_words(comment.created_at, Time.current)%> ago
+      </p>
+      <p >
+        <span class='font-weight-bold'>
+          <%= comment.user.first_name %>
+        </span> <span > commented "<%= comment.content %>" on <%= link_to comment.blog.heading, blog_path(comment.blog.id), method: :get %></span>
+  </div>
+</div>

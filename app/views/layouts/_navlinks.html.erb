@@ -1,0 +1,31 @@
+<% if current_user.present? %>
+    <% if current_user.User?%>
+      <% if current_page?('/dashboard') %>
+        <li class='nav-item'>
+          <%= button_to 'Latest Comments', dashboard_index_path, class: 'btn btn-dark', method: :get ,params:{comment:'show_comment'}%>
+        </li>
+
+        <li class='nav-item'>
+          <%= button_to 'Latest Likes', dashboard_index_path, class: 'btn btn-dark', method: :get ,params:{likes:'show_likes'}%>
+        </li>
+
+        <li class='nav-item'>
+          <%= button_to 'Your Suggestions', blog_suggestions_path(0), class: 'btn btn-dark', method: :get%>
+        </li>
+      <%else%>
+        <li class='nav-item'>
+          <%= button_to 'Dashboard', dashboard_index_path, class: 'btn btn-dark', method: :get%>
+        </li>
+      <%end%>
+
+
+    <%end%>
+  <% if current_user.Moderator?%>
+  <%if current_page?('/blogs') || current_page?('/')%>
+    <li class='nav-item'>
+      <%= button_to 'Reported Posts', blogs_path, class: 'show-reported-posts btn btn-dark', method: :get, remote: true, params:{:report => 'reported_posts'  }%>
+    </li>
+    <%end%>
+  <%end%>
+
+<%end%>
